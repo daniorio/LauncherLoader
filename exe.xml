@@ -1,0 +1,44 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\music\Desktop\LuxinfineLauncherLoader.jar</jar>
+  <outfile>C:\Users\music\Desktop\LuxinfineLauncherLoader.exe</outfile>
+  <errTitle>Неподходящая версия Java</errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://luxinfine.ml/java/jre-8u201-windows-x64.exe</downloadUrl>
+  <supportUrl>https://luxinfine.ml/feedback.html</supportUrl>
+  <customProcName>true</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>C:\Users\music\Desktop\favicon.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion>1.8.9_99</maxVersion>
+    <jdkPreference>preferJdk</jdkPreference>
+    <opt>-XX:+UnlockExperimentalVMOptions</opt>
+    <opt>-XX:+UseConcMarkSweepGC</opt>
+    <opt>-XX:+HeapDumpOnOutOfMemoryError</opt>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.3.0.0</fileVersion>
+    <txtFileVersion>RELEASE</txtFileVersion>
+    <fileDescription>Launcher Loader for Luxinfine.ml</fileDescription>
+    <copyright>By LuxinfineTeam</copyright>
+    <productVersion>1.3.0.0</productVersion>
+    <txtProductVersion>RELEASE</txtProductVersion>
+    <productName>Luxinfine Launcher Loader</productName>
+    <companyName>Luxinfine.ml</companyName>
+    <internalName>LuxinfineLauncherLoader</internalName>
+    <originalFilename>LuxinfineLauncherLoader.exe</originalFilename>
+  </versionInfo>
+  <messages>
+    <startupErr>Произошла ошибка при старте, обратитесь к администратору</startupErr>
+    <bundledJreErr>У вас отсутсвуют или повреждены файлы Java, пожалуйста, скачайте ее с официального сайта Java</bundledJreErr>
+    <jreVersionErr>Это приложение требует наличия у вас Java</jreVersionErr>
+    <launcherErr>Произошла ошибка при запуске, обратитесь к администратору</launcherErr>
+    <instanceAlreadyExistsMsg>Вы не можете запустить вторую копию данного приложения</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
