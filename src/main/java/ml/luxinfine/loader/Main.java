@@ -6,16 +6,16 @@ import java.io.*;
 import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
-import java.util.ArrayList;
+
+import static com.sun.javafx.PlatformUtil.isWindows;
 
 class Main {
-    private static String path = Config.path;
-    private static String fullpath = Config.fullpath;
     private static boolean isLoaded = false;
+    private static final String fullpath = Config.path + File.separator + Config.launcherName + getFileExtension();
 
     public static void main(String[] args) throws IOException {
         if (!new File(fullpath).exists() || new File(fullpath).length() == 0) {
-            new File(path).mkdirs();
+            new File(Config.path).mkdirs();
             for (String url : Config.urls) {
                 try { new FileOutputStream(fullpath).getChannel().transferFrom(Channels.newChannel(new URL(url).openStream()), 0, Long.MAX_VALUE); } catch (Exception e) { continue; }
                 isLoaded = true;
@@ -24,6 +24,9 @@ class Main {
         } else isLoaded = true;
         //* Проверка загруженного файла *//
         if(!isLoaded) setError("Не удалось загрузить файл лаунчера");
+        //* Проверка доступности *//
+        if(!new File(fullpath).canRead()) setError("Не удалось прочитать файл лаунчера");
+        if(!new File(fullpath).canExecute()) setError("Не удалось запустить файл лаунчера");
         //* Проверка битности java *//
         StringBuilder answer = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("java -version").getInputStream()));
@@ -31,7 +34,8 @@ class Main {
         if(!answer.toString().toLowerCase().contains("64-bit") && System.getProperty("os.arch").equals("64")) setInfo("Отсутствует java нужной разрядности");
         //* Проверка версии java *//
         if(Integer.parseInt(System.getProperty("java.version").split("_")[1]) < Config.minJavaVersion) setInfo("Отсутствует java нужной версии");
-        Desktop.getDesktop().open(new File(fullpath));
+        Runtime.getRuntime().exec("java -jar " + fullpath);
+        //Desktop.getDesktop().open(new File(fullpath));
     }
 
     private static void setError(String msg) throws IOException {
@@ -46,6 +50,8 @@ class Main {
             System.exit(0);
         }
     }
+
+    static String getFileExtension() { if(isWindows()) { return ".exe"; } else { return ".jar"; } }
 
 
 }
