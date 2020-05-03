@@ -22,7 +22,7 @@ class Config {
     //*    Ссылки для загрузки джавы    *//
     static final String javaurl = "https://www.java.com/ru/download/manual.jsp";
     static final String javax64 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242060_3d5a2bb8f8d4428bbe94aed7ec7ae784";
-    static final String javax32 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242058_3d5a2bb8f8d4428bbe94aed7ec7ae784";
+    static final String javax32 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242057_3d5a2bb8f8d4428bbe94aed7ec7ae784";
     //*    Минимальная версия джавы    *//
     static final int minJavaVersion = 251;
 }
