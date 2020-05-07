@@ -3,6 +3,7 @@ package ml.luxinfine.loader;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
@@ -14,7 +15,7 @@ class Main {
     private static final String fullpath = Config.path + File.separator + Config.launcherName + getFileExtension();
 
     public static void main(String[] args) throws IOException {
-        if (!new File(fullpath).exists() || new File(fullpath).length() == 0) {
+        if (!new File(fullpath).exists() || new File(fullpath).length() == 0 || (new File(fullpath).length() != getFilesizeFromUrl() && getFilesizeFromUrl() != 0)) {
             new File(Config.path).mkdirs();
             for (String url : Config.urls) {
                 try { new FileOutputStream(fullpath).getChannel().transferFrom(Channels.newChannel(new URL(url).openStream()), 0, Long.MAX_VALUE); } catch (Exception e) { continue; }
@@ -64,5 +65,12 @@ class Main {
 
     static String getFileExtension() { if(isWindows()) { return ".exe"; } else { return ".jar"; } }
 
+    private static int getFilesizeFromUrl() throws IOException {
+        for (String url : Config.urls) {
+            int length = new URL(url).openConnection().getContentLength();
+            if(length > 0) return length;
+        }
+        return 0;
+    }
 
 }
