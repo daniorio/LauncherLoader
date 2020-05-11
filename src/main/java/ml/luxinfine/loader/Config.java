@@ -25,4 +25,6 @@ class Config {
     static final String javax32 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242057_3d5a2bb8f8d4428bbe94aed7ec7ae784";
     //*    Минимальная версия джавы    *//
     static final int minJavaVersion = 251;
+    //*    При изменении размерафайла загружать новую новую копию лаунчера    *//
+    static final boolean checksize = true;
 }
