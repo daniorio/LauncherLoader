@@ -3,7 +3,6 @@ package ml.luxinfine.loader;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
@@ -34,12 +33,14 @@ class Main {
         //* Проверка доступности *//
         if(!launcher.canRead()) setError("Не удалось прочитать файл лаунчера");
         if(!launcher.canExecute()) setError("Не удалось запустить файл лаунчера");
-        //* Проверка битности java *//
-        boolean isJava64bit = System.getProperty("os.arch").contains("64");
-        if (System.getProperty("os.name").contains("Windows")) { isSystem64bit = (System.getenv("ProgramFiles(x86)") != null); } else isSystem64bit = (System.getProperty("os.arch").contains("64"));
-        if(!isJava64bit && isSystem64bit) setInfo("Отсутствует java нужной разрядности", "Установить сейчас?");
-        //* Проверка версии java *//
-        if(Integer.parseInt(System.getProperty("java.version").split("_")[1]) < Config.minJavaVersion) setInfo("Отсутствует java нужной версии", "Установить сейчас?");
+        if(Config.java) {
+            //* Проверка битности java *//
+            boolean isJava64bit = System.getProperty("os.arch").contains("64");
+            if (System.getProperty("os.name").contains("Windows")) { isSystem64bit = (System.getenv("ProgramFiles(x86)") != null); } else isSystem64bit = (System.getProperty("os.arch").contains("64"));
+            if(!isJava64bit && isSystem64bit) setInfo("Отсутствует java нужной разрядности", "Установить сейчас?");
+            //* Проверка версии java *//
+            if(Integer.parseInt(System.getProperty("java.version").split("_")[1]) < Config.minJavaVersion) setInfo("Отсутствует java нужной версии", "Установить сейчас?");
+        }
         try { Runtime.getRuntime().exec("java -jar " + fullpath); } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
     }
 

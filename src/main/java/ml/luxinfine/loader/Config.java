@@ -27,4 +27,6 @@ class Config {
     static final int minJavaVersion = 251;
     //*    При изменении размерафайла загружать новую новую копию лаунчера    *//
     static final boolean checksize = true;
+    //*    Обновлять джаву при несостыковке версии или битности    *//
+    static final boolean java = true;
 }
