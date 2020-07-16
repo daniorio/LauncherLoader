@@ -13,9 +13,6 @@ class Config {
     static final String path = System.getenv("APPDATA") + File.separator + ".Luxinfine" + File.separator + "updates";
     //*    Можно указать список ссылок откуда качается лаунчер, можно одну    *//
     static final List<String> urls = Arrays.asList(
-                                                    "http://luxinfine.ml:82/updates/" + launcherName + getFileExtension(),
-                                                    "https://luxinfine.ml/" + launcherName + getFileExtension(),
-                                                    "http://luxinfine.ml/updates/" + launcherName + getFileExtension(),
                                                     "https://luxinfine.ml/updates/" + launcherName + getFileExtension(),
                                                     "https://luxinfine.ml:444/updates/" + launcherName + getFileExtension()
                                                     );
