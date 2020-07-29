@@ -10,10 +10,11 @@ class Config {
     //*    Название файла лаунчера    *//
     static final String launcherName = "LuxinfineLauncher";
     //*    Путь к месту хранения файла лаунчера    *//
-    static final String path = System.getenv("APPDATA") + File.separator + ".Luxinfine" + File.separator + "updates";
+    static final String path = System.getenv("APPDATA") + File.separator + "Luxinfine" + File.separator + "updates";
     //*    Можно указать список ссылок откуда качается лаунчер, можно одну    *//
     static final List<String> urls = Arrays.asList(
                                                     "https://luxinfine.ml/updates/" + launcherName + getFileExtension(),
+                                                    "https://connect.luxinfine.ml/updates/" + launcherName + getFileExtension(),
                                                     "https://luxinfine.ml:444/updates/" + launcherName + getFileExtension()
                                                     );
     //*    Ссылки для загрузки джавы    *//
