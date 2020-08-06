@@ -12,3 +12,11 @@ targetCompatibility = '1.8'
 repositories {
     mavenCentral()
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ml.luxinfine.loader.Load'
+        )
+    }
+}
