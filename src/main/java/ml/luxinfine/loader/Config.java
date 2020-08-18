@@ -9,7 +9,7 @@ class Config {
     //*    Название файла лаунчера    *//
     public static final String launcherName = "LuxinfineLauncher";
     //*    Путь к месту хранения файла лаунчера    *//
-    public static final Path path = Paths.get(System.getenv("APPDATA"), "Luxinfine", "updates");
+    public static final Path path = Paths.get(Load.getMinecraftDir(), "Luxinfine", "updates");
     //*    Можно указать список ссылок откуда качается лаунчер, можно одну    *//
     public static final List<String> urls = Arrays.asList(
                                                     "https://luxinfine.ml/updates/",

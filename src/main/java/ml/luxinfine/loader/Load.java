@@ -9,7 +9,7 @@ import java.nio.channels.Channels;
 import java.nio.file.Path;
 
 public class Load {
-    private static final boolean isWindows = System.getProperty("os.name").contains("win");
+    public static final boolean isWindows = System.getProperty("os.name").contains("win");
     private static boolean isSystem64bit;
 
     public static void main(String[] args) {
@@ -33,6 +33,10 @@ public class Load {
             if(Integer.parseInt(System.getProperty("java.version").split("_")[1]) < Config.minJavaVersion) setJavaError("Отсутствует java нужной версии");
         }
         try { Runtime.getRuntime().exec("java -jar " + launcher_path); } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
+    }
+
+    public static String getMinecraftDir() {
+        return Load.isWindows ? System.getenv("APPDATA" ) : System.getProperty("user.dir");
     }
 
     private static void setError(String msg) {
