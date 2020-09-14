@@ -9,7 +9,7 @@ import java.nio.channels.Channels;
 import java.nio.file.Path;
 
 public class Load {
-    public static final boolean isWindows = System.getProperty("os.name").contains("win");
+    public static final boolean isWindows = System.getProperty("os.name").contains("indow");
     private static boolean isSystem64bit;
 
     public static void main(String[] args) {
