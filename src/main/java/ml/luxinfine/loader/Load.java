@@ -14,16 +14,7 @@ public class Load {
 
     public static void main(String[] args) {
         Config.path.toFile().mkdirs();
-        String extension = isWindows ? ".exe" : ".jar";
-        Path launcher_path = Config.path.resolve(Config.launcherName + extension);
-        for(final String url : Config.urls) {
-            String full_url = url + Config.launcherName + extension;
-            if((!launcher_path.toFile().exists() || launcher_path.toFile().length() == 0 || (Config.checksize && launcher_path.toFile().length() != getFilesize(full_url))) && download(launcher_path.toString(), full_url)) break;
-        }
-        //* Проверка доступности файла *//
-        if(!launcher_path.toFile().exists()) setError("Не удалось загрузить файл лаунчера");
-        if(!launcher_path.toFile().canRead()) setError("Не удалось прочитать файл лаунчера");
-        if(!launcher_path.toFile().canExecute()) setError("Не удалось запустить файл лаунчера");
+        //* Установка джавы *//
         if(Config.java) {
             //* Проверка битности java *//
             boolean isJava64bit = System.getProperty("os.arch").contains("64");
@@ -32,6 +23,17 @@ public class Load {
             //* Проверка версии java *//
             if(Integer.parseInt(System.getProperty("java.version").split("_")[1]) < Config.minJavaVersion) setJavaError("Отсутствует java нужной версии");
         }
+        //* Установка лаунчера *//
+        String extension = isWindows ? ".exe" : ".jar";
+        Path launcher_path = Config.path.resolve(Config.launcherName + extension);
+        for(String url : Config.urls) {
+            String full_url = url + Config.launcherName + extension;
+            if((!launcher_path.toFile().exists() || launcher_path.toFile().length() == 0 || (Config.checksize && launcher_path.toFile().length() != getFilesize(full_url))) && download(launcher_path.toString(), full_url)) break;
+        }
+        //* Проверка доступности файла *//
+        if(!launcher_path.toFile().exists()) setError("Не удалось загрузить файл лаунчера");
+        if(!launcher_path.toFile().canRead()) setError("Не удалось прочитать файл лаунчера");
+        if(!launcher_path.toFile().canExecute()) setError("Не удалось запустить файл лаунчера");
         try { Runtime.getRuntime().exec("java -jar " + launcher_path); } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
     }
 
@@ -45,11 +47,11 @@ public class Load {
     }
 
     private static void setJavaError(String msg) {
-        final int selection = JOptionPane.showConfirmDialog(null, "Установить сейчас?", msg, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int selection = JOptionPane.showConfirmDialog(null, "Установить сейчас?", msg, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(selection == JOptionPane.YES_OPTION) {
             if(isWindows) {
-                final String installer_path = System.getProperty("user.dir") + File.separator + "javainstaller.exe";
-                final File installer = new File(installer_path);
+                String installer_path = System.getProperty("user.dir") + File.separator + "javainstaller.exe";
+                File installer = new File(installer_path);
                 JOptionPane.showConfirmDialog(null, "Сейчас начнется установка джавы, пожалуйста, подождите пару минут", "", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 if(!download(installer_path, isSystem64bit ? Config.javax64 : Config.javax32) || !installer.exists()) setError("Не удалось загрузить установщик джавы");
                 if(!installer.canRead()) setError("Не удалось прочитать установщик джавы");
@@ -63,7 +65,7 @@ public class Load {
 
     private static boolean download(String path, String url) {
         try {
-            final FileOutputStream fos = new FileOutputStream(path);
+            FileOutputStream fos = new FileOutputStream(path);
             fos.getChannel().transferFrom(Channels.newChannel(new URL(url).openStream()), 0, Long.MAX_VALUE);
             fos.close();
             return true;

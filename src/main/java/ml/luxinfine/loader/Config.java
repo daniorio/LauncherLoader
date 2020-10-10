@@ -18,10 +18,10 @@ class Config {
                                                     );
     //*    Ссылки для загрузки джавы    *//
     public static final String javaurl = "https://www.java.com/ru/download/manual.jsp";
-    public static final String javax64 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242060_3d5a2bb8f8d4428bbe94aed7ec7ae784";
-    public static final String javax32 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242057_3d5a2bb8f8d4428bbe94aed7ec7ae784";
+    public static final String javax64 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242990_a4634525489241b9a9e1aa73d9e118e6";
+    public static final String javax32 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242988_a4634525489241b9a9e1aa73d9e118e6";
     //*    Минимальная версия джавы    *//
-    public static final int minJavaVersion = 251;
+    public static final int minJavaVersion = 250;
     //*    При изменении размерафайла загружать новую новую копию лаунчера    *//
     public static final boolean checksize = true;
     //*    Обновлять джаву при несостыковке версии или битности    *//
