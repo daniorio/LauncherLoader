@@ -1,44 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\music\Desktop\LauncherLoader-1.3-obf.jar</jar>
-  <outfile>C:\Users\music\Desktop\LauncherLoader-1.3-obf.exe</outfile>
-  <errTitle>Неподходящая версия Java</errTitle>
+  <jar>C:\Users\Drop\Desktop\LauncherLoader.jar</jar>
+  <outfile>C:\Users\Drop\Desktop\LauncherLoader.exe</outfile>
+  <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>
   <priority>normal</priority>
-  <downloadUrl>https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242060_3d5a2bb8f8d4428bbe94aed7ec7ae784</downloadUrl>
+  <downloadUrl></downloadUrl>
   <supportUrl></supportUrl>
-  <customProcName>true</customProcName>
   <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\music\Desktop\favicon.ico</icon>
+  <icon>C:\Users\Drop\Desktop\favicon.ico</icon>
   <jre>
     <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
     <minVersion>1.8.0</minVersion>
     <maxVersion>1.8.9_99</maxVersion>
     <jdkPreference>preferJdk</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
     <opt>-XX:+UnlockExperimentalVMOptions</opt>
     <opt>-XX:+UseConcMarkSweepGC</opt>
     <opt>-XX:+HeapDumpOnOutOfMemoryError</opt>
   </jre>
   <versionInfo>
-    <fileVersion>1.3.0.0</fileVersion>
+    <fileVersion>2.0.0.0</fileVersion>
     <txtFileVersion>RELEASE</txtFileVersion>
     <fileDescription>Launcher Loader for Luxinfine.ml</fileDescription>
     <copyright>By LuxinfineTeam</copyright>
-    <productVersion>1.3.0.0</productVersion>
+    <productVersion>2.0.0.0</productVersion>
     <txtProductVersion>RELEASE</txtProductVersion>
     <productName>Luxinfine Launcher Loader</productName>
     <companyName>Luxinfine.ml</companyName>
     <internalName>LuxinfineLauncherLoader</internalName>
     <originalFilename>LuxinfineLauncherLoader.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
   </versionInfo>
   <messages>
-    <startupErr>Произошла ошибка при старте, обратитесь к администратору</startupErr>
-    <bundledJreErr>У вас отсутсвуют или повреждены файлы Java, пожалуйста, скачайте ее с официального сайта Java</bundledJreErr>
-    <jreVersionErr>Это приложение требует наличия у вас Java</jreVersionErr>
-    <launcherErr>Произошла ошибка при запуске, обратитесь к администратору</launcherErr>
-    <instanceAlreadyExistsMsg>Вы не можете запустить вторую копию данного приложения</instanceAlreadyExistsMsg>
+    <startupErr>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё СЃС‚Р°СЂС‚Рµ, РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ</startupErr>
+    <bundledJreErr>РЈ РІР°СЃ РѕС‚СЃСѓС‚СЃРІСѓСЋС‚ РёР»Рё РїРѕРІСЂРµР¶РґРµРЅС‹ С„Р°Р№Р»С‹ Java, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРєР°С‡Р°Р№С‚Рµ РµРµ СЃ РѕС„РёС†РёР°Р»СЊРЅРѕРіРѕ СЃР°Р№С‚Р° Java</bundledJreErr>
+    <jreVersionErr>Р­С‚Рѕ РїСЂРёР»РѕР¶РµРЅРёРµ С‚СЂРµР±СѓРµС‚ РЅР°Р»РёС‡РёСЏ Сѓ РІР°СЃ Java</jreVersionErr>
+    <launcherErr>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё Р·Р°РїСѓСЃРєРµ, РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ</launcherErr>
+    <instanceAlreadyExistsMsg>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ Р·Р°РїСѓСЃС‚РёС‚СЊ РІС‚РѕСЂСѓСЋ РєРѕРїРёСЋ РґР°РЅРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ</instanceAlreadyExistsMsg>
   </messages>
 </launch4jConfig>
