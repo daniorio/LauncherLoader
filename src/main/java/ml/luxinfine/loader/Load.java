@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.URI;
 import java.net.URL;
 import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Path;
 
 public class Load {
@@ -34,7 +35,10 @@ public class Load {
         if(!launcher_path.toFile().exists()) setError("Не удалось загрузить файл лаунчера");
         if(!launcher_path.toFile().canRead()) setError("Не удалось прочитать файл лаунчера");
         if(!launcher_path.toFile().canExecute()) setError("Не удалось запустить файл лаунчера");
-        try { Runtime.getRuntime().exec("java -jar " + launcher_path); } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
+        try {
+            Process process = new ProcessBuilder(launcher_path.toString()).start();
+            if(!process.isAlive()) setError("Не удалось запустить файл лаунчера");
+        } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
     }
 
     public static String getMinecraftDir() {
@@ -66,10 +70,12 @@ public class Load {
     private static boolean download(String path, String url) {
         try {
             FileOutputStream fos = new FileOutputStream(path);
-            fos.getChannel().transferFrom(Channels.newChannel(new URL(url).openStream()), 0, Long.MAX_VALUE);
+            ReadableByteChannel stream = Channels.newChannel(new URL(url).openStream());
+            fos.getChannel().transferFrom(stream, 0, Long.MAX_VALUE);
+            stream.close();
             fos.close();
             return true;
-        } catch (IOException ignored) { return false; }
+        } catch (IOException e) { return false; }
     }
 
     private static int getFilesize(String url) {

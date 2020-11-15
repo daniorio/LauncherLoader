@@ -12,9 +12,8 @@ class Config {
     public static final Path path = Paths.get(Load.getMinecraftDir(), "Luxinfine", "updates");
     //*    Можно указать список ссылок откуда качается лаунчер, можно одну    *//
     public static final List<String> urls = Arrays.asList(
-                                                    "https://luxinfine.ml/updates/",
                                                     "https://connect.luxinfine.ml/updates/",
-                                                    "https://luxinfine.ml:444/updates/"
+                                                    "https://luxinfine.ml/updates/"
                                                     );
     //*    Ссылки для загрузки джавы    *//
     public static final String javaurl = "https://www.java.com/ru/download/manual.jsp";
