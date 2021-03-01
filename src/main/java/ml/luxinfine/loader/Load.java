@@ -38,7 +38,10 @@ public class Load {
         try {
             Process process = new ProcessBuilder(launcher_path.toString()).start();
             if(!process.isAlive()) setError("Не удалось запустить файл лаунчера");
-        } catch (Exception e) { setError("Не удалось запустить файл лаунчера"); }
+        } catch (Exception e) {
+            e.printStackTrace();
+            setError("Не удалось запустить файл лаунчера");
+        }
     }
 
     public static String getMinecraftDir() {
