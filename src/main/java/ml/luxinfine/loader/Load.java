@@ -64,8 +64,8 @@ public class Load {
                 if(!installer.canRead()) setError("Не удалось прочитать установщик джавы");
                 if(!installer.canExecute()) setError("Не удалось запустить установщик джавы");
                 JOptionPane.showConfirmDialog(null, "Продолжите установку в ручном режиме, а после заного запустите лаунчер", "", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                try { Desktop.getDesktop().open(new File(installer_path)); } catch (IOException e) {}
-            } else try { Desktop.getDesktop().browse(URI.create(Config.javaurl)); } catch (IOException e) {}
+                try { Desktop.getDesktop().open(new File(installer_path)); } catch (IOException ignored) {}
+            } else try { Desktop.getDesktop().browse(URI.create(Config.javaurl)); } catch (IOException ignored) {}
             System.exit(0);
         }
     }

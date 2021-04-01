@@ -3,18 +3,16 @@ package ml.luxinfine.loader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class Config {
     //*    Название файла лаунчера    *//
     public static final String launcherName = "LuxinfineLauncher";
     //*    Путь к месту хранения файла лаунчера    *//
-    public static final Path path = Paths.get(Load.getMinecraftDir(), "Luxinfine", "updates");
+    public static final Path path = Paths.get(Load.getMinecraftDir(), "projectname", "updates");
     //*    Можно указать список ссылок откуда качается лаунчер, можно одну    *//
-    public static final List<String> urls = Arrays.asList(
-                                                    "https://connect.luxinfine.ml/updates/",
-                                                    "https://luxinfine.ml/updates/"
-                                                    );
+    public static final List<String> urls = Collections.singletonList("https://yoursite.com/updates/");
     //*    Ссылки для загрузки джавы    *//
     public static final String javaurl = "https://www.java.com/ru/download/manual.jsp";
     public static final String javax64 = "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242990_a4634525489241b9a9e1aa73d9e118e6";
